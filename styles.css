@@ -1,5 +1,8 @@
 body {
 	background: #fff;
+	padding: 0;
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 .body-inner {
@@ -9,28 +12,35 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	max-width: 1200px;
+	padding: 0 15px;
+	box-sizing: border-box;
+	margin: 0 auto;
 }
 .headerMain,
 .footerMain {
 	background: #7faff6;
 	height: 100px;
+	padding: 15px;
+	box-sizing: border-box;
+}
+.headerMain {
+	margin-bottom: 15px;
 }
 .footerMain {
 	margin-top: auto;
 }
-.section_1 {
+.section-1 {
 	background: #b3f95a;
 	display: grid;
-	/*grid-template-columns: 1fr 1.3fr 160px;*/
-	/*grid-template-areas: "1 2 3" "4 4 5";*/
-    grid-template: 
-    	"1 2 3"
-    	"4 4 5" auto / auto 160px 
-
-
-
+	grid-auto-rows: minmax(10vh, 198px);
+	grid-template-columns: [col] 1fr [col] 1fr;
+	gap: 15px;
 }
-.section_1_child {
+.section-1_child:nth-child(4) {
+	grid-column: col / span 2;
+	grid-row: 3;
+}
+.section-1_child {
 	background: #8ad191;
 	font-size: 50px;
 	color: #fff;
@@ -38,11 +48,17 @@ body {
 	align-items: center;
 	justify-content: center;		
 }
-.section_2 {
+.section-2 {
 	background: #88b5bf;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 15px;
+	margin: 15px 0;
+	padding: 15px;
 }
-.section_2_child {
+.section-2_child {
 	background: #0d89b0;
+	padding-top: 75%;
 }
 .container-fluid {
 	width: 100%;
@@ -76,4 +92,71 @@ body {
 }
 .container-fluid.section .wrapperDefault-inner {
 	padding: 50px 0;
+}
+.btn {
+	font-family: inherit;
+	text-decoration: none;
+	color: #000 !important;
+	border: 1px solid #ccc;
+	padding: 5px 10px;
+
+}
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.popup-wrapper:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+.popup-close {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup-title {
+	font-size: 30px;
+	margin-bottom: 15px;
+}
+.popup-content {
+	line-height: 1.4;
+}
+@media (min-width: 768px) {
+	.section-2 {
+		gap: 30px;
+		padding: 30px;
+	}
+}
+@media (min-width: 576px) {
+	.section-1 {
+		grid-template-columns: [col] 1fr [col] 1.3fr [col] 160px;
+	}
+	.section-1_child:nth-child(4) {
+		grid-row: auto;
+	}
+	.section-2 {
+		grid-template-columns: repeat(4, 1fr);		
+	}
+
 }
