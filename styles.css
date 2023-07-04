@@ -1,5 +1,6 @@
 .barcodeScan {
-	position: absolute;	
+	position: absolute;
+	bottom: 100%;
 	right: 70px;
 	width: 50px;
 	height: 50px;
@@ -8,18 +9,83 @@
 	justify-content: center;
 	img {
 		width: 40px;
+		filter: grayscale(1) brightness(100);
 	}
 	@include media-breakpoint-up(sm) {
 		display: none;
 	}
  }
- video,
+ body > video,
  canvas.drawing, canvas.drawingBuffer {
 	position: absolute;
 	left: 0;
 	top: 0;
+	right: 0;
+	z-index: 10003;
 }
-
+canvas.drawing, canvas.drawingBuffer,
+body > video {
+	width: 100vw !important;
+	top: 50%;
+	transform: translateY(-50%);	
+}
+body.scannerRanning-init {
+	overflow: hidden;
+	&::after {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 10001;
+		background-color: rgba(0,0,0,.85);
+	}
+}
+body.scannerRanning-loading {
+	overflow: hidden;
+	&::before {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		width: 70px;
+		height: 70px;
+		z-index: 10002;
+		background:url("/i/loading.gif") no-repeat;
+		background-size: contain;
+	}
+}
+body.scannerRanning-gotoSearhcPage {
+	overflow: hidden;
+	&::after {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 10001;
+		background-color: rgba(0,0,0,.85);
+	}
+	&::before {
+		content: "";
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		width: 70px;
+		height: 70px;
+		z-index: 10002;
+		background:url("/i/loading.gif") no-repeat;
+		background-size: contain;
+	}
+}
 body {
 	background: #fff;
 	padding: 0;
