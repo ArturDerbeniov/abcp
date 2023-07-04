@@ -7,7 +7,7 @@ window.barcodeScanInited = false;
 //срабатывает после docready
 //сюда писать скрипт, который нелючевой и допускает более поздней загрузки
 function eventWinLoad(e) {
-	document.body.insertAdjacentHTML("beforeend", "33333333333333333333333");
+	document.body.insertAdjacentHTML("beforeend", "444444444444444444444");
 }
 
 //глобальный обработчик кликов по документу
@@ -24,7 +24,7 @@ function eventDocClick(e) {
 
 			if (!window.barcodeScanInited) {
 				window.barcodeScanInited = true;
-				loadJS("/js/plugins/quagga2.min.js", barcodeScan.init, document.body);
+				loadJS("quagga2.min.js", barcodeScan.init, document.body);
 			}
 			else {
 				barcodeScan.init();
