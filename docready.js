@@ -23,7 +23,7 @@ function eventDocClick(e) {
 			
 			if(!window.barcodeScanInited) {
 				window.barcodeScanInited = true;
-				loadJS("/js/plugins/quagga.min.js", barcodeScanInit, document.body);
+				loadJS("quagga.min.js", barcodeScanInit, document.body);
 			}
 			else {
 				barcodeScanInit();
