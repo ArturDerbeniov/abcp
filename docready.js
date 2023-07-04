@@ -44,7 +44,7 @@ function eventDocClick(e) {
 							},
 						},
 						readers: [
-							"code_128_reader"/* ,
+							"code_128_reader",
 							"ean_reader",
 							"ean_8_reader",
 							"code_39_reader",
@@ -52,7 +52,7 @@ function eventDocClick(e) {
 							"codabar_reader",
 							"upc_reader",
 							"upc_e_reader",
-							"i2of5_reader" */
+							"i2of5_reader"
 						],
 						debug: {
 							showCanvas: true,
