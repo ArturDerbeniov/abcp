@@ -7,6 +7,7 @@ window.barcodeScanInited = false;
 //срабатывает после docready
 //сюда писать скрипт, который нелючевой и допускает более поздней загрузки
 function eventWinLoad(e) {
+	document.body.insertAdjacentHTML("beforeend", "1");
 }
 
 //глобальный обработчик кликов по документу
@@ -106,6 +107,7 @@ function eventDocClick(e) {
 
 					Quagga.onDetected(function (result) {
 						console.log("Barcode detected and processed : [" + result.codeResult.code + "]", result);
+						alert(result.codeResult.code);
 					});
 				}
 			}
